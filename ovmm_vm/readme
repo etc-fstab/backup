@@ -1,0 +1,26 @@
+Backup and restore of a VM in OVMM cluster
+==========================================
+
+Introduction
+-------------
+
+The ovm-bkp is tool available on Oracle Technology Network website under the "Oracle VM Tools" group. 
+It can be used to backup and restore a VM managed by OVMM.
+
+Requirements
+--------------
+
+It has to be installed on OVMM system, supports OL6, OL7
+OVS has to be at least version 3.4
+No space is allowed in names of OVMM pool, repository and VM
+Online backup is supported on iSCSI/FC repos, offline backup is supported on NFS repos
+Backup supports only virtual disks owned by VM (attached physical disks are not backed up) 
+It's suggested to have dedicated NFS repository for VM backups, this will also allow usage of ZFS snapshots and Oracle Secure Backup.
+
+Script
+-------
+
+The backup_ovmm_vm.py [python3.5] uses ovm-bkp to perform the work. 
+
+
+

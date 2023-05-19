@@ -1,0 +1,60 @@
+Intro
+======
+
+The script to backup FreeIPA server.
+
+Usage
+======
+
+Run it as cronjob.
+
+# * * * * *  command to execute
+# │ │ │ │ │
+# │ │ │ │ │
+# │ │ │ │ └─── day of week (0-6) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+# │ │ │ └────────── month (1 - 12)
+# │ │ └─────────────── day of month (1 - 31)
+# │ └──────────────────── hour (0 - 23)
+# └───────────────────────── min (0 - 59)
+
+# ex.
+10 20 * * * /some-path/backup_ipa_server.sh
+
+Logs
+=====
+
+Are in /var/log/backup_ipa_server directory. One can read like:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Removing old logs:
+-------------------
+removed ‘/var/log/backup_ipa_server/backup_ipa_server.sh.04.16.2020_20:10.log’
+Removing old backups directories:
+--------------------------------
+removed ‘/var/lib/ipa/backup/ipa-data-2020-04-16-20-10-39/ipa-data.tar’
+removed ‘/var/lib/ipa/backup/ipa-data-2020-04-16-20-10-39/header’
+removed directory: ‘/var/lib/ipa/backup/ipa-data-2020-04-16-20-10-39’
+Performing IPA server backup
+----------------------------
+ipa: DEBUG: Loading Index file from '/var/lib/ipa/sysrestore/sysrestore.index'
+ipa.ipaserver.install.ipa_backup.Backup: DEBUG: Logging to /var/log/ipabackup.log
+--shortened --
+ipa: DEBUG: Process finished, return code=0
+ipa: DEBUG: stdout=Kerberos 5 version 1.14.1
+
+ipa: DEBUG: stderr=
+ipa: DEBUG: importing plugin module ipaserver.plugins.rabase
+ipa: DEBUG: ipaserver.plugins.rabase is not a valid plugin module
+--shortened --
+ipa: DEBUG: Process finished, return code=0
+ipa: DEBUG: stdout=active
+
+ipa: DEBUG: stderr=
+ipa: DEBUG: wait_for_open_ports: localhost [389] timeout 300
+--shortened --
+ipa.ipaserver.install.ipa_backup.Backup: INFO: Backed up to /var/lib/ipa/backup/ipa-data-2020-05-18-20-11-04
+ipa.ipaserver.install.ipa_backup.Backup: INFO: The ipa-backup command was successful
+
+  COMPLETED IN:  0 h   1 m  31 s
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

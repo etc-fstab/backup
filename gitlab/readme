@@ -1,0 +1,61 @@
+Intro
+------
+
+The script to backup GitLab Omnibus installation, using Gitlab native backup command gitlab-rake (skipping repositories).
+As result, there are two files in backup locations:
+etc-gitlab_11.15.2019_15_23.tar 
+1573860044_2019_11_15_11.8.0_gitlab_backup.tar
+
+Logs
+--------
+
+Example of log file backup_gitlab.sh.11.15.2019_14:35.log
+
+Removing old logs:
+-------------------
+removed ‘/var/log/gitlab-backup/backup_gitlab.sh.11.06.2019_14:35.log’
+Removing old GitLab configuration backups:
+-----------------------------------------
+removed ‘/git/backups/etc-gitlab_11.06.2019_15_22.tar’
+Performing GitLab backup
+----------------------------
+2019-11-15 14:35:13 -0800 -- Dumping database ...
+Dumping PostgreSQL database gitlabhq_production ... [DONE]
+2019-11-15 14:39:47 -0800 -- done
+2019-11-15 14:39:47 -0800 -- Dumping repositories ...
+2019-11-15 14:39:47 -0800 -- [SKIPPED]
+2019-11-15 14:39:47 -0800 -- Dumping uploads ...
+2019-11-15 14:39:56 -0800 -- done
+2019-11-15 14:39:56 -0800 -- Dumping builds ...
+2019-11-15 14:40:01 -0800 -- done
+2019-11-15 14:40:01 -0800 -- Dumping artifacts ...
+2019-11-15 14:48:22 -0800 -- done
+2019-11-15 14:48:22 -0800 -- Dumping pages ...
+2019-11-15 14:48:22 -0800 -- done
+2019-11-15 14:48:22 -0800 -- Dumping lfs objects ...
+2019-11-15 15:20:44 -0800 -- done
+2019-11-15 15:20:44 -0800 -- Dumping container registry images ...
+2019-11-15 15:20:44 -0800 -- [DISABLED]
+Creating backup archive: 1573860044_2019_11_15_11.8.0_gitlab_backup.tar ... done
+Uploading backup archive to remote storage  ... skipped
+Deleting tmp directories ... done
+done
+Deleting old backups ... done. (1 removed)
+Archiving GitLab config files
+----------------------------
+tar: Removing leading `/' from member names
+/etc/gitlab/
+/etc/gitlab/gitlab-secrets.json
+/etc/gitlab/trusted-certs/
+/etc/gitlab/ssl/
+/etc/gitlab/ssl/backup/
+/etc/gitlab/ssl/backup/some-fqdn.crt
+/etc/gitlab/ssl/backup/some-fqdn.key
+/etc/gitlab/ssl/original.crt
+/etc/gitlab/ssl/some-fqdn.crt
+/etc/gitlab/gitlab.rb.bk
+/etc/gitlab/gitlab.rb
+
+  COMPLETED IN:  0 h  48 m  55 s
+
+
