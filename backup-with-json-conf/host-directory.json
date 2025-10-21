@@ -1,0 +1,18 @@
+{
+    "_comment": "To format json file use: python -m json.tool in.json > out.json",
+    "backup_source": {
+        "host-100.domain.com": [
+            "/path/data-00",
+            "/path/data-001"
+        ],
+        "host-200.domain.com": [
+            "/path/data-10",
+            "/path/data-101"
+        ],
+        "host-300.domain.com": [
+            "/path/data-20",
+            "/path/data-30"
+        ]
+    }
+}
+

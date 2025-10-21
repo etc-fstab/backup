@@ -1,0 +1,5 @@
+
+The python3 program reads json conf file and backup hosts' folders.
+It's assumed that the program is run on some admin host,
+so it ssh to remote hosts from json conf, and backup their fodlers.
+
